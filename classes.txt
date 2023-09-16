@@ -1,0 +1,98 @@
+classe Quadrado(lado1, lado2, lado3, lado4): 
+
+	definir construtor:
+		proprio.lado1 = lado1
+		proprio.lado2 = lado2
+		proprio.lado3 = lado3
+		proprio.lado4 = lado4
+
+	definir mostrarPerimetro:
+		perimetro = proprio.lado1 * 4
+		retornar perimetro
+
+	definir mostrarArea:
+		area = proprio.lado1 * proprio.lado2
+		retornar area
+
+	definir diagonal:
+		retornar raiz(proprio.lado1)
+
+
+classe Ponto(x, y):
+    
+    definir construtor:
+        proprio.x = x
+        proprio.y = y
+
+    definir mostrarCoordenadas:
+        retornar tupla(proprio.x, proprio.y)
+
+classe Circulo(raio, ponto: Tupla):
+    
+    definir construtor:
+        proprio.ponto = ponto
+        proprio.raio = raio
+
+    definir mostrarArea:
+        area = (proprio.raio ** 2) * PI
+        retornar area
+    
+    definir mostrarPerimetro:
+        perimetro = 2 * PI * proprio.raio
+        retornar perimetro
+    
+    definir mostrarDiametro:
+        diametro = 2 * proprio.raio
+        retornar diametro
+
+classe Retangulo(lado1, lado2, lado3, lado4):
+    
+    definir construtor:
+        proprio.lado1 = lado1
+        proprio.lado2 = lado2
+        proprio.lado3 = lado3
+        proprio.lado4 = lado4
+    
+    definir mostrarPerimetro:
+         perimetro = proprio.lado1 + proprio.lado2 + proprio.lado3 + proprio.lado4
+         retornar perimetro
+
+    definir mostrarArea:
+        maiorLado = 0
+        menorLado = 0
+        lados = lista(proprio.lado1, proprio.lado2, proprio.lado3, proprio.lado4)
+        lado = 0 
+        para lado em lados:
+            se lado > maiorLado:
+                maiorLado = lado
+            senao lado < menorLado:
+                menorLado = lado
+        
+        return maiorLado * menorLado
+        
+
+se arquivo.nome == principal:
+
+    quadrado = Quadrado(4, 4, 4, 4)
+    retangulo = Retangulo(4, 2, 4, 2)
+    ponto = Ponto(3, 9)
+    circulo = Circulo(10, (1, 3))
+
+    mostrar(quadrado.mostrarArea) -> retorno: 16
+    mostrar(quadrado.perimetro) -> retorno: 16
+
+    mostrar(retangulo.mostrarArea) -> retorno: 8
+    mostrar(retangulo.mostrarPerimetro) -> retorno: 12
+    
+    mostrar(ponto.mostrarCoordenadas) -> retorno: (3, 9)
+    mostrar(ponto.x) -> retorno: 3
+
+    mostrar(circulo.mostrarDiametro) -> retorno: 60 // aproximadamente
+    mostrar(circulo.raio) -> retorno: 10
+    
+
+    
+
+
+
+    
